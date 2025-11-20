@@ -8,4 +8,3 @@ export class AuthResponse {
   @Field()
   username: string;
 }
-

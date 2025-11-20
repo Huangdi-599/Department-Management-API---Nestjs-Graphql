@@ -24,7 +24,9 @@ export class DepartmentResolver {
   }
 
   @Query(() => Department, { name: 'getDepartment' })
-  async getDepartment(@Args('id', { type: () => ID }) id: number): Promise<Department> {
+  async getDepartment(
+    @Args('id', { type: () => ID }) id: number,
+  ): Promise<Department> {
     return this.departmentService.findOne(id);
   }
 
@@ -36,8 +38,9 @@ export class DepartmentResolver {
   }
 
   @Mutation(() => Boolean)
-  async deleteDepartment(@Args('id', { type: () => ID }) id: number): Promise<boolean> {
+  async deleteDepartment(
+    @Args('id', { type: () => ID }) id: number,
+  ): Promise<boolean> {
     return this.departmentService.remove(id);
   }
 }
-

@@ -1,5 +1,11 @@
-import { InputType, Field, ID } from '@nestjs/graphql';
-import { IsString, MinLength, IsOptional, ValidateNested, IsArray } from 'class-validator';
+import { InputType, Field } from '@nestjs/graphql';
+import {
+  IsString,
+  MinLength,
+  IsOptional,
+  ValidateNested,
+  IsArray,
+} from 'class-validator';
 import { Type } from 'class-transformer';
 
 @InputType()
@@ -24,4 +30,3 @@ export class CreateDepartmentInput {
   @Type(() => SubDepartmentInput)
   subDepartments?: SubDepartmentInput[];
 }
-

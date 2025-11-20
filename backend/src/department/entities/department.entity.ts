@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  OneToMany,
+} from 'typeorm';
 import { ObjectType, Field, ID } from '@nestjs/graphql';
 import { SubDepartment } from '../../sub-department/entities/sub-department.entity';
 
@@ -28,4 +35,3 @@ export class Department {
   @UpdateDateColumn()
   updatedAt: Date;
 }
-

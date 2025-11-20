@@ -24,7 +24,9 @@ export class SubDepartmentResolver {
   }
 
   @Query(() => SubDepartment, { name: 'getSubDepartment' })
-  async getSubDepartment(@Args('id', { type: () => ID }) id: number): Promise<SubDepartment> {
+  async getSubDepartment(
+    @Args('id', { type: () => ID }) id: number,
+  ): Promise<SubDepartment> {
     return this.subDepartmentService.findOne(id);
   }
 
@@ -36,8 +38,9 @@ export class SubDepartmentResolver {
   }
 
   @Mutation(() => Boolean)
-  async deleteSubDepartment(@Args('id', { type: () => ID }) id: number): Promise<boolean> {
+  async deleteSubDepartment(
+    @Args('id', { type: () => ID }) id: number,
+  ): Promise<boolean> {
     return this.subDepartmentService.remove(id);
   }
 }
-

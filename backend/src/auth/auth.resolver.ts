@@ -9,7 +9,9 @@ export class AuthResolver {
   constructor(private authService: AuthService) {}
 
   @Mutation(() => AuthResponse)
-  async register(@Args('input') registerInput: RegisterInput): Promise<AuthResponse> {
+  async register(
+    @Args('input') registerInput: RegisterInput,
+  ): Promise<AuthResponse> {
     return this.authService.register(registerInput);
   }
 
@@ -18,4 +20,3 @@ export class AuthResolver {
     return this.authService.login(loginInput);
   }
 }
-

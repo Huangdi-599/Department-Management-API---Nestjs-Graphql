@@ -15,7 +15,9 @@ export class SubDepartmentService {
     private departmentRepository: Repository<Department>,
   ) {}
 
-  async create(createSubDepartmentInput: CreateSubDepartmentInput): Promise<SubDepartment> {
+  async create(
+    createSubDepartmentInput: CreateSubDepartmentInput,
+  ): Promise<SubDepartment> {
     const { name, departmentId } = createSubDepartmentInput;
 
     // Verify department exists
@@ -24,7 +26,9 @@ export class SubDepartmentService {
     });
 
     if (!department) {
-      throw new NotFoundException(`Department with ID ${departmentId} not found`);
+      throw new NotFoundException(
+        `Department with ID ${departmentId} not found`,
+      );
     }
 
     const subDepartment = this.subDepartmentRepository.create({
@@ -55,7 +59,9 @@ export class SubDepartmentService {
     return subDepartment;
   }
 
-  async update(updateSubDepartmentInput: UpdateSubDepartmentInput): Promise<SubDepartment> {
+  async update(
+    updateSubDepartmentInput: UpdateSubDepartmentInput,
+  ): Promise<SubDepartment> {
     const { id, name } = updateSubDepartmentInput;
 
     const subDepartment = await this.findOne(id);
@@ -70,4 +76,3 @@ export class SubDepartmentService {
     return true;
   }
 }
-

@@ -627,6 +627,4 @@ src/
 - `createdAt`
 - `updatedAt`
 
-## License
 
-This project is created for assignment purposes.

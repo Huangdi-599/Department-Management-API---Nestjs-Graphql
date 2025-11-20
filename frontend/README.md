@@ -61,8 +61,16 @@ npm start
 ### Department Management
 - View all departments in a hierarchical structure
 - Create departments with optional sub-departments
-- Update department names
+- Update department names and sub-departments
 - Delete departments (cascades to sub-departments)
+- Real-time data updates
+
+### Sub-Department Management
+- View all sub-departments in a table format
+- Create new sub-departments linked to departments
+- Update sub-department names
+- Delete individual sub-departments
+- Filter by department
 - Real-time data updates
 
 ### User Interface
@@ -82,18 +90,22 @@ app/
 │   └── page.tsx
 ├── departments/        # Department management page
 │   └── page.tsx
+├── sub-departments/    # Sub-department management page
+│   └── page.tsx
 ├── layout.tsx          # Root layout
 └── page.tsx            # Home/redirect page
 
 components/
-├── DepartmentForm.tsx  # Department create/edit form
-└── ProtectedRoute.tsx  # Route protection wrapper
+├── DepartmentForm.tsx      # Department create/edit form
+├── SubDepartmentForm.tsx   # Sub-department create/edit form
+└── ProtectedRoute.tsx      # Route protection wrapper
 
 lib/
 ├── api-client.ts       # Axios configuration
 └── api/
-    ├── auth.ts         # Authentication API calls
-    └── departments.ts  # Department API calls
+    ├── auth.ts              # Authentication API calls
+    ├── departments.ts       # Department API calls
+    └── sub-departments.ts   # Sub-department API calls
 
 contexts/
 └── AuthContext.tsx     # Authentication context provider
@@ -118,6 +130,16 @@ contexts/
 - Displays all departments in a card layout
 - Shows sub-departments hierarchically
 - Create, edit, and delete functionality
+- Navigation link to sub-departments page
+- Logout button
+
+### Sub-Departments (`/sub-departments`)
+- Protected route (requires authentication)
+- Displays all sub-departments in a table format
+- Shows department name for each sub-department
+- Create, edit, and delete functionality
+- Department selection dropdown when creating
+- Navigation link back to departments page
 - Logout button
 
 ## API Integration
@@ -156,6 +178,7 @@ Forms use Formik with Yup validation schemas:
 - **Login**: Username (min 3 chars), Password (min 6 chars)
 - **Register**: Username (min 3 chars), Password (min 6 chars), Confirm Password (must match)
 - **Department**: Name (min 2 chars), Sub-departments (optional, min 2 chars each)
+- **Sub-Department**: Name (min 2 chars), Department (required when creating)
 
 ## Styling
 
@@ -186,6 +209,4 @@ The application uses Tailwind CSS for styling with:
 - Safari (latest)
 - Edge (latest)
 
-## License
 
-This project is created for assignment purposes.

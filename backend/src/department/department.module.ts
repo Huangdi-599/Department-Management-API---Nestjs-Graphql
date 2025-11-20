@@ -11,4 +11,3 @@ import { SubDepartment } from '../sub-department/entities/sub-department.entity'
   exports: [DepartmentService],
 })
 export class DepartmentModule {}
-
