@@ -23,7 +23,10 @@ apiClient.interceptors.request.use(
 );
 
 // GraphQL helper function
-export const graphqlRequest = async (query: string, variables?: any) => {
+export const graphqlRequest = async (
+  query: string,
+  variables?: Record<string, unknown>,
+) => {
   const response = await apiClient.post('/graphql', {
     query,
     variables,
