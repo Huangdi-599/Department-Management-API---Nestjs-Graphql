@@ -20,7 +20,7 @@ export default function Home() {
     <div className="flex min-h-screen items-center justify-center">
       <div className="text-center">
         <p className="text-lg">Redirecting...</p>
-      </div>
+        </div>
     </div>
   );
 }
